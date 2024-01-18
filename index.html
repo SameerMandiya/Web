@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Web Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+        }
+
+        #logo {
+            background-color: navy;
+            color: white;
+            flex: 2; /* Adjusted to cover 60% of the screen */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px; /* Adjusted font size for the text */
+        }
+
+        #company-name-box {
+            padding: 10px; /* Added padding for the box around the text */
+            border: 2px solid blue; /* Added border for the box */
+            border-radius: 5px; /* Added border-radius for rounded corners */
+            background-color: white; /* Set background color to white */
+            color: blue; /* Set text color to blue */
+        }
+
+        #admin-login {
+            flex: 1.2; /* Adjusted to cover 40% of the screen */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+            padding: 20px; /* Added padding for better spacing */
+        }
+
+        #login-form {
+            text-align: center;
+        }
+
+        #login-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #login-button {
+            margin-top: 10px; /* Added margin for better spacing */
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="logo">
+            <div id="company-name-box">
+                Logo <!-- Replace this text with your actual logo text -->
+            </div>
+        </div>
+        <div id="admin-login">
+            <form id="login-form" action="admin-login.php" method="post">
+                <h2>Admin Login</h2>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="submit" id="login-button">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+function goTocreat() {
+    // Redirect to creat.html
+    window.location.href = 'creat.html';
+}
+</script>
+</body>
+</html>
+<a href="index.html">Go back to Page 1</a>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #profile-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        #profile-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #approval-status {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #back-button {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="profile-card">
+            <img src="path/to/profile-photo.jpg" alt="Profile Photo" id="profile-photo">
+            <div id="profile-name">John Doe</div>
+            <div id="approval-status">Approval Status: Approved</div>
+            <!-- Replace "Approved" with "Not Approved" for an unapproved status -->
+            <button id="back-button" onclick="goBack()">Back</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            // You can add logic to navigate back to the previous page
+            alert('Navigating back...'); // For demonstration purposes
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+        }
+
+        #create-user {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0e0e0;
+            padding: 20px;
+        }
+
+        #view-user {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            padding: 20px;
+        }
+
+        #input-form {
+            text-align: center;
+        }
+
+        #input-form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #input-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #submit-button {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #view-button {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        #user-list {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .user-entry {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="create-user">
+            <form id="input-form" action="javascript:void(0);" onsubmit="addUser();">
+                <h2>Create User</h2>
+                <label for="userId">User ID:</label>
+                <input type="text" id="userId" name="userId" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="submit" id="submit-button">Submit</button>
+            </form>
+        </div>
+        <div id="view-user">
+            <h2>View User</h2>
+            <div id="user-list">
+                <table id="user-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="user-entry">
+                            <td>user1</td>
+                            <td>password1</td>
+                        </tr>
+                        <!-- Additional user entries will be added dynamically -->
+                    </tbody>
+                </table>
+                <p id="no-users-message">No users available yet. Enter user information on the left.</p>
+            </div>
+            <button id="view-button" onclick="viewUsers()">View Users</button>
+        </div>
+    </div>
+    <script>
+        function addUser() {
+            const userId = document.getElementById('userId').value;
+            const password = document.getElementById('password').value;
+            const userTable = document.getElementById('user-table');
+            const noUsersMessage = document.getElementById('no-users-message');
+
+            if (userId && password) {
+                const userEntry = document.createElement('tr');
+                userEntry.innerHTML = `<td>${userId}</td><td>${password}</td>`;
+                userTable.querySelector('tbody').appendChild(userEntry);
+
+                // Show table and hide the "No users available" message
+                userTable.style.display = 'table';
+                noUsersMessage.style.display = 'none';
+
+                // Clear input fields after adding user
+                document.getElementById('userId').value = '';
+                document.getElementById('password').value = '';
+            }  else {
+                alert('Please enter User ID and Password before submitting.');
+            }
+        }
+
+        function viewUsers() {
+            const userTable = document.getElementById('user-table');
+            const noUsersMessage = document.getElementById('no-users-message');
+
+            // Check if there are any user entries in the table
+            const hasUsers = userTable.querySelector('tbody').children.length > 0;
+
+            // Toggle the display of the "No users available" message
+            noUsersMessage.style.display = hasUsers ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- Your login page HTML... -->
+
+<script>
+    function validateAdminLogin() {
+        const enteredUsername = document.getElementById('username').value;
+        const enteredPassword = document.getElementById('password').value;
+
+        // Replace these values with your pre-configured admin credentials
+        const adminUsername = 'admin';
+        const adminPassword = 'admin123';
+
+        if (enteredUsername === adminUsername && enteredPassword === adminPassword) {
+            // If the credentials are correct, redirect to the user management system page
+            window.location.href = 'user-management-system.html';
+        } else {
+            alert('Invalid admin credentials. Please try again.');
+        }
+    }
+
+    // Rest of your JavaScript code...
+</script>
+
+<!-- Your user management system page HTML... -->
